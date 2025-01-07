@@ -1,0 +1,20 @@
+create:
+  name: ftll_attack
+  num_classes: 43
+  # lr: 0.00001
+
+remove:
+  name: ftll_removal
+  epochs: 1
+
+dataset:
+  name: GTSRBDataLoader
+  subset: all
+  root: /home/data/data/gtsrb
+  batch_size: 64
+  image_size: 32
+  num_workers: 2
+
+true_labels: True
+name: ftll
+output_dir: outputs/gtsrb/attacks/ftll/

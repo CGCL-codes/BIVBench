@@ -1,0 +1,35 @@
+create:
+  name: rtal_attack
+  num_classes: 10
+
+remove:
+  name: rtal_removal
+  epochs: 20
+
+dataset:
+  name: CIFAR10DataLoader
+  subset: all
+  root: ~/.wrt/data
+  batch_size: 64
+  image_size: 32
+  num_workers: 2
+
+optimizer:
+  name: Adam
+  lr: 0.001
+
+scheduler:
+  name: MultiStepLR
+  milestones: [5, 10, 15]
+  gamma: 0.2
+
+#optimizer:
+#  name: SGD
+#  lr: 0.1
+#  momentum: 0.9
+#  weight_decay: 0.0001
+#  nesterov: True
+
+true_labels: True
+name: rtal
+output_dir: outputs/cifar10/attacks/rtal/

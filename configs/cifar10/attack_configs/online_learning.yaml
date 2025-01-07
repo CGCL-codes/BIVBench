@@ -1,0 +1,5 @@
+# config the online learning attack in data_remove dir
+# The online learning attack is a data removal attack that removes a certain percentage of the training data each epoch.
+# The attack is implemented in the `data_remove` directory.
+
+

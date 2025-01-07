@@ -1,0 +1,28 @@
+create:
+  name: rtll_attack
+  num_classes: 43
+
+remove:
+  name: rtll_removal
+  epochs: 60
+
+dataset:
+  name: CIFAR10DataLoader
+  subset: all
+  root: /home/data/data/gtsrb
+  batch_size: 64
+  image_size: 32
+  num_workers: 2
+
+optimizer:
+  name: TFRMSprop
+
+
+scheduler:
+  name: MultiStepLR
+  milestones: [20, 35, 50]
+  gamma: 0.2
+
+true_labels: True
+name: rtll
+output_dir: outputs/gtsrb/attacks/rtll/

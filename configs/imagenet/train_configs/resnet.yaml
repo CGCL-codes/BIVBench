@@ -1,0 +1,33 @@
+model:
+  name: imagenet_resnet
+  num_classes: 1000
+  image_size: 224
+
+
+dataset:
+  name: ImageNetDataLoader
+  subset: all
+  root: /home/data/data/imagenet
+  batch_size: 64
+  image_size: 224
+  num_workers: 16
+
+optimizer:
+  name: SGD
+  lr: 0.1
+  weight_decay: 0.0001
+  momentum: 0.9
+
+scheduler:
+  name: ReduceLROnPlateau
+  factor: 0.1
+  patience: 2
+  verbose: False
+
+trainer:
+  name: Trainer
+  num_epochs: 60
+  verbose: 0
+
+name: resnet
+output_dir: outputs/imagenet/random_start_models/resnet/

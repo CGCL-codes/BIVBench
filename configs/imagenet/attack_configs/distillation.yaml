@@ -1,0 +1,40 @@
+create:
+  name: distillation_attack
+  num_classes: 1000
+  image_size: 224
+  alpha: 1.0
+  T: 3.0
+
+surrogate_model:
+  name: efficientnet
+  pretrain: Fasle
+  num_classes: 1000
+  image_size: 224
+
+
+remove:
+  name: distillation_removal
+  epochs: 60
+
+dataset:
+  name: ImageNetDataLoader
+  subset: all
+  root: /home/data/imagenet
+  batch_size: 64
+  image_size: 224
+  num_workers: 1
+  apply_softmax: False
+
+optimizer:
+  name: Adam
+  lr: 0.01
+
+scheduler:
+  name: ReduceLROnPlateau
+  factor: 0.1
+  patience: 5
+  verbose: True
+
+true_labels: False
+name: distillation
+output_dir: outputs/imagenet/attacks/distillation/

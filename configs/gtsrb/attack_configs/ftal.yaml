@@ -1,0 +1,20 @@
+create:
+  name: ftal_attack
+  num_classes: 43
+  # lr: 0.00001
+
+remove:
+  name: ftal_removal
+  epochs: 20
+
+dataset:
+  name: GTSRBDataLoader
+  subset: all
+  root: /home/data/data/gtsrb
+  batch_size: 64
+  image_size: 32
+  num_workers: 2
+
+true_labels: True
+name: fall
+output_dir: outputs/gtsrb/attacks/ftal/

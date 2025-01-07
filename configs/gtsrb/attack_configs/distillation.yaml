@@ -1,0 +1,35 @@
+create:
+  name: distillation_attack
+  num_classes: 43
+  T: 3
+  alpha: 1.0
+
+surrogate_model:
+  name: gtsrb_convnet
+  image_size: 32
+  num_classes: 43
+
+remove:
+  name: distillation_removal
+  epochs: 60
+
+dataset:
+  name: GTSRBDataLoader
+  subset: all
+  root: /home/data/data/gtsrb
+  batch_size: 64
+  image_size: 32
+  num_workers: 2
+  apply_softmax: False
+
+optimizer:
+  name: TFRMSprop
+
+scheduler:
+  name: MultiStepLR
+  milestones: [20, 30, 40, 50]
+  gamma: 0.2
+
+true_labels: False
+name: distillation
+output_dir: outputs/gtsrb/attacks/distillation/

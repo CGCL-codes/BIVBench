@@ -1,0 +1,22 @@
+create:
+  name: fine_pruning_attack
+  num_classes: 10
+  ratio: 0.05   # pruning ratio
+  layer_index: 3
+  layer_name: ['conv1','layer1','layer2','layer3']
+
+remove:
+  name: fine_pruning_removal
+  epochs: 1
+
+dataset:
+  name: CIFAR10DataLoader
+  subset: all
+  root: ~/.wrt/data
+  batch_size: 64
+  image_size: 32
+  num_workers: 2
+
+true_labels: True
+name: fine_pruning
+output_dir: outputs/cifar10/attacks/fine_pruning/
