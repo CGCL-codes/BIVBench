@@ -15,12 +15,12 @@ The following five main scripts provide the entire toolbox's functionality:
 
 - *train_protect_model.py*: Trains a neural network to be protected.
 - *train_tampered_model.py*: runs basic tampering attacks on a pre-trained model.
-- *backdoor_attack/main.py*: Runs data poisoning based attacks on a pre-trained model.
+- *backdoor_attack/main.py*: Runs data poisoning-based attacks on a pre-trained model.
 - *data_removal/Unlearning.py*: Runs an unlearning attack on a pre-trained model.
 - *data_removal/Online_learning.py*: Runs an online learning attack on a pre-trained model.
 
 We use the [mlconfig](https://github.com/narumiruna/mlconfig) library to pass configuration hyperparameters to each script. 
-Configuration files used in our paper for CIFAR-10 and ImageNet can be found in the ``configs/`` directory. 
+Examples of configuration files for CIFAR-10, GTSRB, MNIST, and ImageNet can be found in the ``configs/`` directory. 
 Configuration files store **all hyperparameters** needed to reproduce an experiment. 
 
 ### Step 1: Configuring your protect model 
@@ -29,7 +29,7 @@ Configuration files store **all hyperparameters** needed to reproduce an experim
 
 (b) Put the training configuration of your model in the `configs/dataset_name/train_configs` directory.
 
-Next, we use the resnet20 on CIFAR10 as the example. 
+Next, we use the resnet20 on CIFAR10 as an example. 
 
 
 ### Step 2: Training the protect model
@@ -54,14 +54,14 @@ knowledge distillation, weight quantization, and weight pruning*. All configurat
 If you want to use other tampering methods, 
 you can follow below instructions.
 
-#### (a) Data poison based attacks
+#### (a) Data poison-based attacks
 These attacks including *random class degradation attack (Degradation<sub>Random</sub>-C), 
 specific class degradation attack (Degradation<sub>Specific</sub>-C),
 random sample degradation attack (Degradation-S), clean label backdoor attack (Clean Label),
 neuron trojan attack(Trojan attack) and
 targeted attack*. 
 
-All these attack are support in our repository based on [backdoor attack](https://github.com/vtu81/backdoor_attack) and are in the `backdoor_attack` directory. To run the attack, you can use the following command:
+All these attacks are supported in our repository based on [backdoor attack](https://github.com/vtu81/backdoor_attack) and are in the `backdoor_attack` directory. To run the attack, you can use the following command:
 ```shell
 $ cd backdoor_attack
 $ python backdoor_attack/main.py --dataset cifar10 --task backdoor 
@@ -71,19 +71,19 @@ $ python backdoor_attack/main.py --dataset cifar10 --task backdoor
 ```
 
 #### (b) data removal based attacks
-These attacks including *unlearning based attacks and online learning based attacks*.
+These attacks include *unlearning-based attacks and online learning-based attacks*.
 
 ##### (b.1) Unlearning based attacks
-Unlearning based attacks refer to the process of forgetting the knowledge of the target model.  Blow is the example of unlearning based attacks on CIFAR10 dataset.
+Unlearning-based attacks refer to the process of forgetting the knowledge of the target model.  Below is an example of unlearning-based attacks on the CIFAR10 dataset.
 ```shell
 $ cd data_removal
 $ python data_remove/Unlearning.py --config ../configs/cifar10/train_configs/resnet20.yaml 
 --dataset cifar10 --ratio 0.01  --batch_size 64 
 --Posterior_Attack True --gpu 1 --num 10
 ```
-##### (b.2) Online learning based attacks
-Online learning based attacks refer to the process of learning the new knowledge of the target model.
-Blow is the example of online learning based attacks on CIFAR10 dataset.
+##### (b.2) Online learning-based attacks
+Online learning-based attacks refer to the process of learning the new knowledge of the target model.
+Below is an example of online learning-based attacks on the CIFAR10 dataset.
 ```shell
 $ cd data_removal
 $ python data_remove/Online_learning.py --config ../configs/cifar10/train_configs/resnet20.yaml 
