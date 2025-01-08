@@ -76,7 +76,7 @@ These attacks include *unlearning-based attacks and online learning-based attack
 ##### (b.1) Unlearning based attacks
 Unlearning-based attacks refer to the process of forgetting the knowledge of the target model.  Below is an example of unlearning-based attacks on the CIFAR10 dataset.
 ```shell
-$ cd data_removal
+$ cd data_remove
 $ python data_remove/Unlearning.py --config ../configs/cifar10/train_configs/resnet20.yaml 
 --dataset cifar10 --ratio 0.01  --batch_size 64 
 --Posterior_Attack True --gpu 1 --num 10
@@ -85,7 +85,7 @@ $ python data_remove/Unlearning.py --config ../configs/cifar10/train_configs/res
 Online learning-based attacks refer to the process of learning the new knowledge of the target model.
 Below is an example of online learning-based attacks on the CIFAR10 dataset.
 ```shell
-$ cd data_removal
+$ cd data_remove
 $ python data_remove/Online_learning.py --config ../configs/cifar10/train_configs/resnet20.yaml 
 --dataset cifar10 --batch_size 128 --Posterior_Attack False 
 --gpu 1 --fp_path ../fingerprints.npy --num 10 
