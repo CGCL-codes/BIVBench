@@ -16,8 +16,8 @@ The following five main scripts provide the entire toolbox's functionality:
 - *train_protect_model.py*: Trains a neural network to be protected.
 - *train_tampered_model.py*: runs basic tampering attacks on a pre-trained model.
 - *backdoor_attack/main.py*: Runs data poisoning-based attacks on a pre-trained model.
-- *data_removal/Unlearning.py*: Runs an unlearning attack on a pre-trained model.
-- *data_removal/Online_learning.py*: Runs an online learning attack on a pre-trained model.
+- *data_remove/Unlearning.py*: Runs an unlearning attack on a pre-trained model.
+- *data_remove/Online_learning.py*: Runs an online learning attack on a pre-trained model.
 
 We use the [mlconfig](https://github.com/narumiruna/mlconfig) library to pass configuration hyperparameters to each script. 
 Examples of configuration files for CIFAR-10, GTSRB, MNIST, and ImageNet can be found in the ``configs/`` directory. 
